@@ -297,7 +297,7 @@ const Header: React.FC = () => {
                         className="text-gray-600 hover:text-gray-900 relative cursor-pointer"
                     >
                         <FaHeart className="text-lg"/>
-                        <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                        <span className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 bg-blue-600 text-white text-[10px] min-w-[18px] h-[18px] rounded-full flex items-center justify-center px-[4px] leading-none font-semibold">
                             1
                         </span>
                     </button>
@@ -378,7 +378,7 @@ const Header: React.FC = () => {
                         className="text-gray-600 hover:text-gray-900 relative cursor-pointer"
                     >
                         <FaShoppingBag className="text-lg"/>
-                        <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                        <span className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 bg-blue-600 text-white text-[10px] min-w-[18px] h-[18px] rounded-full flex items-center justify-center px-[4px] leading-none font-semibold">
                             2
                         </span>
                     </button>
