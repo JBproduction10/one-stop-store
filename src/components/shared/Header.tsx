@@ -13,8 +13,13 @@ import { FaCross, FaHeart, FaSearch, FaShoppingBag, FaTimes, FaUser } from "reac
 
 
 const Header: React.FC = () => {
+    // const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+    // const [quantity, setQuantity] = useState(1);
+    // const [selectedColor, setSelectedColor] = useState('silver');
+    // const [selectedSize, setSelectedSize] = useState('M');
+    // const [isWishlisted, setIsWishlisted] = useState(false);
     const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isWishlistOpen, setIsWishlistOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -31,7 +36,7 @@ const Header: React.FC = () => {
         setWishlistItems(wishlistItems.filter((item) => item.id !== id));
     };
 
-    const addToCart = (item:any) =>{
+    const addToCart = () =>{
         // Add to cart logic
         setIsWishlistOpen(false);
         setIsCartOpen(true);
@@ -40,16 +45,12 @@ const Header: React.FC = () => {
     // Close dropdown when clicking outside
     React.useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            const userMenu =
-                document.getElementById("userDropdownMenu");
-            const userButton = 
-                document.getElementById("userMenuButton");
-            const cartDropdown = 
-            document.getElementById("cartDropdown");
-            const searchButton = 
-            document.getElementById("searchButton");
-            const searchInput = 
-            document.getElementById("searchInput");
+            const userMenu = document.getElementById('userDropdownMenu');
+            const userButton = document.getElementById('userMenuButton');
+            const cartDropdown = document.getElementById('cartDropdown');
+            const cartButton = document.getElementById('cartButton');
+            const searchButton = document.getElementById('searchButton');
+            const searchInput = document.getElementById('searchInput');
 
             if(
                 isSearchOpen &&
@@ -57,8 +58,7 @@ const Header: React.FC = () => {
                 searchButton &&
                 searchInput &&
                 !searchButton.contains(event.target) &&
-                !searchInput.contains(event.target) &&
-                !event.target.closest(".bg-white")
+                !searchInput.contains(event.target)
             ){
                 setIsSearchOpen(false);
             }
@@ -99,7 +99,7 @@ const Header: React.FC = () => {
             document.removeEventListener("mousedown",
                 handleClickOutside);
         }
-    },[]);
+    },[isSearchOpen]);
   return (
     <header className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -337,7 +337,7 @@ const Header: React.FC = () => {
                                                     <FaTimes className="fas fa-times"/>
                                                 </button>
                                                 <button
-                                                    onClick={() => addToCart(item)}
+                                                    onClick={() => addToCart()}
                                                     className="text-blue-600 hover:text-blue-700"
                                                 >
                                                     <FaShoppingBag className="fas fa-shopping-cart"/>
