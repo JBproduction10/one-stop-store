@@ -3,112 +3,107 @@
 
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, Thumbs } from "swiper/modules";
+import { Navigation, Thumbs } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+// import { Button } from "@/components/ui/button";
+// import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { Card, CardContent } from "@/components/ui/card";
+// import { Separator } from "@/components/ui/separator";
+// import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
-import { FaCross, FaHeart, FaSearch, FaShoppingBag, FaStar, FaTimes, FaUser } from "react-icons/fa";
+import {  FaStar } from "react-icons/fa";
 
 const SingleProduct: React.FC = () =>{
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
-    const [quantity, setQuantity] = useState(1);
+    // const [quantity, setQuantity] = useState(1);
     const [selectedColor, setSelectedColor] = useState("silver");
-    const [selectedSize, setSelectedSize] = useState("M");
-    const [isWishlisted, setIsWishlisted] = useState(false);
-    const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [isCartOpen, setIsCartOpen] = useState(false);
-    const [isWishlistOpen, setIsWishlistOpen] = useState(false);
-    const [isSearchOpen, setIsSearchOpen] = useState(false);
-    const [wishlistItems, setWishlistItems] = useState([
-        {
-          id: 1,
-          name: "Silver High Neck Sweater",
-          price: 59.99,
-          image:
-            "https://readdy.ai/api/search-image?query=elegant%20silver%20high%20neck%20sweater%20front%20view%2C%20high%20quality%20fashion%20photography%2C%20simple%20clean%20white%20background%2C%20professional%20product%20photography%2C%20soft%20lighting%2C%20detailed%20fabric%20texture&width=80&height=80&seq=11&orientation=squarish",
-        },
-    ]);
-    const removeFromWishlist = (id: number) => {
-        setWishlistItems(wishlistItems.filter((item) => item.id !== id));
-    };
+    // const [selectedSize, setSelectedSize] = useState("M");
+    // const [isWishlisted, setIsWishlisted] = useState(false);
+    // const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
+    // const [isCartOpen, setIsCartOpen] = useState(false);
+    // const [isWishlistOpen, setIsWishlistOpen] = useState(false);
+    // const [isSearchOpen, setIsSearchOpen] = useState(false);
+    // const [wishlistItems, setWishlistItems] = useState([
+    //     {
+    //       id: 1,
+    //       name: "Silver High Neck Sweater",
+    //       price: 59.99,
+    //       image:
+    //         "https://readdy.ai/api/search-image?query=elegant%20silver%20high%20neck%20sweater%20front%20view%2C%20high%20quality%20fashion%20photography%2C%20simple%20clean%20white%20background%2C%20professional%20product%20photography%2C%20soft%20lighting%2C%20detailed%20fabric%20texture&width=80&height=80&seq=11&orientation=squarish",
+    //     },
+    // ]);
+    // const removeFromWishlist = (id: number) => {
+    //     setWishlistItems(wishlistItems.filter((item) => item.id !== id));
+    // };
 
-    const addToCart = (item:any) =>{
-        // Add to cart logic
-        setIsWishlistOpen(false);
-        setIsCartOpen(true);
-    };
+    // const addToCart = (item:any) =>{
+    //     // Add to cart logic
+    //     setIsWishlistOpen(false);
+    //     setIsCartOpen(true);
+    // };
 
     // Close dropdown when clicking outside
-    React.useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            const userMenu =
-                document.getElementById("userDropdownMenu");
-            const userButton = 
-                document.getElementById("userMenuButton");
-            const cartDropdown = 
-            document.getElementById("cartDropdown");
-            const searchButton = 
-            document.getElementById("searchButton");
-            const searchInput = 
-            document.getElementById("searchInput");
+    // React.useEffect(() => {
+        // const handleClickOutside = (event: MouseEvent) => {
+            // const userMenu = document.getElementById('userDropdownMenu');
+            // const userButton = document.getElementById('userMenuButton');
+            // const cartDropdown = document.getElementById('cartDropdown');
+            // const cartButton = document.getElementById('cartButton');
+            // const searchButton = document.getElementById('searchButton');
+            // const searchInput = document.getElementById('searchInput');
 
-            if(
-                isSearchOpen &&
-                event.target instanceof Node &&
-                searchButton &&
-                searchInput &&
-                !searchButton.contains(event.target) &&
-                !searchInput.contains(event.target) &&
-                !event.target.closest(".bg-white")
-            ){
-                setIsSearchOpen(false);
-            }
+            // if(
+            //     isSearchOpen &&
+            //     event.target instanceof Node &&
+            //     searchButton &&
+            //     searchInput &&
+            //     !searchButton.contains(event.target) &&
+            //     !searchInput.contains(event.target)
+            // ){
+            //     setIsSearchOpen(false);
+            // }
 
-            if(
-                userMenu &&
-                userButton &&
-                !userMenu.contains(event.target as Node) &&
-                !userButton.contains(event.target as Node)
-            ){
-                setIsUserMenuOpen(false)
-            }
+            // if(
+            //     userMenu &&
+            //     userButton &&
+            //     !userMenu.contains(event.target as Node) &&
+            //     !userButton.contains(event.target as Node)
+            // ){
+            //     setIsUserMenuOpen(false)
+            // }
 
-            if(cartDropdown &&
-                cartButton &&
-                !cartDropdown.contains(event.target as Node) &&
-                !cartButton.contains(event.target as Node)
-            ){
-                setIsCartOpen(false);
-            }
+            // if(cartDropdown &&
+            //     cartButton &&
+            //     !cartDropdown.contains(event.target as Node) &&
+            //     !cartButton.contains(event.target as Node)
+            // ){
+            //     setIsCartOpen(false);
+            // }
 
-            const wishlistDropdown = 
-            document.getElementById("wishlistDropdown");
-            const wishlistButton =
-            document.getElementById("wishlistButton");
-            if(wishlistDropdown &&
-                wishlistButton &&
-                !wishlistDropdown.contains(event.target as Node) &&
-                !wishlistButton.contains(event.target as Node)
-            ){
-                setIsWishlistOpen(false);
-            }
-        }
-        document.addEventListener("mousedown",
-            handleClickOutside
-        );
-        return () => {
-            document.removeEventListener("mousedown",
-                handleClickOutside);
-        }
-    },[]);
+            // const wishlistDropdown = 
+            // document.getElementById("wishlistDropdown");
+            // const wishlistButton =
+            // document.getElementById("wishlistButton");
+            // if(wishlistDropdown &&
+            //     wishlistButton &&
+            //     !wishlistDropdown.contains(event.target as Node) &&
+            //     !wishlistButton.contains(event.target as Node)
+            // ){
+            //     setIsWishlistOpen(false);
+            // }
+        // }
+        // document.addEventListener("mousedown",
+        //     handleClickOutside
+        // );
+        // return () => {
+        //     document.removeEventListener("mousedown",
+        //         handleClickOutside);
+        // }
+    // },[]);
 
     const colors = [
         { id: "silver", name: "Silver", value: "#C0C0C0" },
@@ -116,54 +111,54 @@ const SingleProduct: React.FC = () =>{
         { id: "white", name: "White", value: "#FFFFFF" },
         { id: "gray", name: "Gray", value: "#808080" },
     ];
-    const sizes = ["XS", "S", "M", "L", "XL"];
-    const relatedProducts = [
-        {
-          id: 1,
-          name: "Cashmere Turtleneck Sweater",
-          price: 79.99,
-          image:
-            "https://readdy.ai/api/search-image?query=elegant%20cashmere%20turtleneck%20sweater%20in%20beige%20color%2C%20high%20quality%20fashion%20photography%2C%20simple%20clean%20white%20background%2C%20professional%20product%20photography%2C%20soft%20lighting%2C%20detailed%20fabric%20texture&width=400&height=500&seq=1&orientation=portrait",
-        },
-        {
-          id: 2,
-          name: "Wool Blend Cardigan",
-          price: 64.99,
-          image:
-            "https://readdy.ai/api/search-image?query=stylish%20wool%20blend%20cardigan%20in%20light%20gray%20color%2C%20high%20quality%20fashion%20photography%2C%20simple%20clean%20white%20background%2C%20professional%20product%20photography%2C%20soft%20lighting%2C%20detailed%20fabric%20texture&width=400&height=500&seq=2&orientation=portrait",
-        },
-        {
-          id: 3,
-          name: "Ribbed Cotton Pullover",
-          price: 49.99,
-          image:
-            "https://readdy.ai/api/search-image?query=modern%20ribbed%20cotton%20pullover%20in%20navy%20blue%2C%20high%20quality%20fashion%20photography%2C%20simple%20clean%20white%20background%2C%20professional%20product%20photography%2C%20soft%20lighting%2C%20detailed%20fabric%20texture&width=400&height=500&seq=3&orientation=portrait",
-        },
-        {
-          id: 4,
-          name: "Merino Wool Sweater",
-          price: 69.99,
-          image:
-            "https://readdy.ai/api/search-image?query=luxurious%20merino%20wool%20sweater%20in%20dark%20green%2C%20high%20quality%20fashion%20photography%2C%20simple%20clean%20white%20background%2C%20professional%20product%20photography%2C%20soft%20lighting%2C%20detailed%20fabric%20texture&width=400&height=500&seq=4&orientation=portrait",
-        },
-    ];
+    // const sizes = ["XS", "S", "M", "L", "XL"];
+    // const relatedProducts = [
+    //     {
+    //       id: 1,
+    //       name: "Cashmere Turtleneck Sweater",
+    //       price: 79.99,
+    //       image:
+    //         "https://readdy.ai/api/search-image?query=elegant%20cashmere%20turtleneck%20sweater%20in%20beige%20color%2C%20high%20quality%20fashion%20photography%2C%20simple%20clean%20white%20background%2C%20professional%20product%20photography%2C%20soft%20lighting%2C%20detailed%20fabric%20texture&width=400&height=500&seq=1&orientation=portrait",
+    //     },
+    //     {
+    //       id: 2,
+    //       name: "Wool Blend Cardigan",
+    //       price: 64.99,
+    //       image:
+    //         "https://readdy.ai/api/search-image?query=stylish%20wool%20blend%20cardigan%20in%20light%20gray%20color%2C%20high%20quality%20fashion%20photography%2C%20simple%20clean%20white%20background%2C%20professional%20product%20photography%2C%20soft%20lighting%2C%20detailed%20fabric%20texture&width=400&height=500&seq=2&orientation=portrait",
+    //     },
+    //     {
+    //       id: 3,
+    //       name: "Ribbed Cotton Pullover",
+    //       price: 49.99,
+    //       image:
+    //         "https://readdy.ai/api/search-image?query=modern%20ribbed%20cotton%20pullover%20in%20navy%20blue%2C%20high%20quality%20fashion%20photography%2C%20simple%20clean%20white%20background%2C%20professional%20product%20photography%2C%20soft%20lighting%2C%20detailed%20fabric%20texture&width=400&height=500&seq=3&orientation=portrait",
+    //     },
+    //     {
+    //       id: 4,
+    //       name: "Merino Wool Sweater",
+    //       price: 69.99,
+    //       image:
+    //         "https://readdy.ai/api/search-image?query=luxurious%20merino%20wool%20sweater%20in%20dark%20green%2C%20high%20quality%20fashion%20photography%2C%20simple%20clean%20white%20background%2C%20professional%20product%20photography%2C%20soft%20lighting%2C%20detailed%20fabric%20texture&width=400&height=500&seq=4&orientation=portrait",
+    //     },
+    // ];
     const productImages = [
         "https://readdy.ai/api/search-image?query=elegant%20silver%20high%20neck%20sweater%20front%20view%2C%20high%20quality%20fashion%20photography%2C%20simple%20clean%20white%20background%2C%20professional%20product%20photography%2C%20soft%20lighting%2C%20detailed%20fabric%20texture&width=800&height=1000&seq=5&orientation=portrait",
         "https://readdy.ai/api/search-image?query=elegant%20silver%20high%20neck%20sweater%20side%20view%2C%20high%20quality%20fashion%20photography%2C%20simple%20clean%20white%20background%2C%20professional%20product%20photography%2C%20soft%20lighting%2C%20detailed%20fabric%20texture&width=800&height=1000&seq=6&orientation=portrait",
         "https://readdy.ai/api/search-image?query=elegant%20silver%20high%20neck%20sweater%20back%20view%2C%20high%20quality%20fashion%20photography%2C%20simple%20clean%20white%20background%2C%20professional%20product%20photography%2C%20soft%20lighting%2C%20detailed%20fabric%20texture&width=800&height=1000&seq=7&orientation=portrait",
         "https://readdy.ai/api/search-image?query=elegant%20silver%20high%20neck%20sweater%20detail%20view%20of%20fabric%2C%20high%20quality%20fashion%20photography%2C%20simple%20clean%20white%20background%2C%20professional%20product%20photography%2C%20soft%20lighting%2C%20detailed%20fabric%20texture&width=800&height=1000&seq=8&orientation=portrait",
     ];
-    const incrementQuantity = () => {
-        setQuantity(quantity + 1);
-    }
-    const decrementQuantity = () => {
-        if (quantity > 1) {
-            setQuantity(quantity - 1);
-        }
-    };
-    const toggleWishlist = () => {
-        setIsWishlisted(!isWishlisted);
-    };
+    // const incrementQuantity = () => {
+    //     setQuantity(quantity + 1);
+    // }
+    // const decrementQuantity = () => {
+    //     if (quantity > 1) {
+    //         setQuantity(quantity - 1);
+    //     }
+    // };
+    // const toggleWishlist = () => {
+    //     setIsWishlisted(!isWishlisted);
+    // };
 
     return(
         <div className="min-h-screen bg-gray-50">

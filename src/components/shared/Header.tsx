@@ -19,7 +19,7 @@ const Header: React.FC = () => {
     // const [selectedSize, setSelectedSize] = useState('M');
     // const [isWishlisted, setIsWishlisted] = useState(false);
     const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-    // const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn,] = useState(false);
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isWishlistOpen, setIsWishlistOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);

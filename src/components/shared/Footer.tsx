@@ -35,13 +35,13 @@ const Footer = () => {
                             <Link
                                 href="/"
                                 className='hover:text-white transition-colors cursor-pointer'
-                            >Women's Collection</Link>
+                            >{`Women's Collection`}</Link>
                         </li>
                         <li>
                             <Link
                                 href="/"
                                 className='hover:text-white transition-colors cursor-pointer'
-                            >Men's Collection</Link>
+                            >{`Men's Collection`}</Link>
                         </li>
                         <li>
                             <Link
