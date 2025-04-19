@@ -17,6 +17,7 @@ import Link from "next/link";
 import {  FaStar } from "react-icons/fa";
 
 const SingleProduct: React.FC = () =>{
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
     // const [quantity, setQuantity] = useState(1);
     const [selectedColor, setSelectedColor] = useState("silver");
